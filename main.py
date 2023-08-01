@@ -89,7 +89,7 @@ def webhook():
     answer = complete_xq(query_text)
 
     res = {
-        "fulfillment_response": {"messages": [{"text": {"text": [answer]}}]}
+        "fulfillment_response": {"messages": [{"text": {"text": ["ChatGPT: " + answer]}}]}
     }
 
     return res
