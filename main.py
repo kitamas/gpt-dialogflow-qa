@@ -60,7 +60,7 @@ def complete_xq(query):
         # print(f"{match['score']:.2f}: {match['metadata']['answer']}\n")
         # print(f"\nURL: {match['metadata']['url']}\n\nTITLE: {match['metadata']['title']}\n\nSPAN: {match['metadata']['span']}\n\nDIV: {match['metadata']['div']}\n")
 
-        query = f"{match['score']:.2f}: {match['metadata']['answer']}\n"
+        query = f"{match['metadata']['answer']}"
         # query = f"\nURL: {match['metadata']['url']}\n\nTITLE: {match['metadata']['title']}\n\nSPAN: {match['metadata']['span']}\n\nDIV: {match['metadata']['div']}\n"
 
     return query   
@@ -97,7 +97,7 @@ def webhook():
 
 embed_model = "text-embedding-ada-002"
 MODEL = "text-embedding-ada-002"
-namespace_name = "mb"
+namespace_name = "ujvilag_QA"
 
 """
 def retrieve(query_text):
