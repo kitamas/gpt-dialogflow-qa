@@ -16,8 +16,8 @@ YOUR_ENV = "us-west1-gcp-free"
 
 index_name = "chat-doc-ts"
 
-namespace = namespace
-# namespace = "uj_vilag"
+# namespace = namespace
+namespace = "uj_vilag"
 
 # Flask app should start in global layout
 app = flask.Flask(__name__)
