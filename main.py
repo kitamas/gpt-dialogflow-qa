@@ -61,7 +61,7 @@ def complete_xq(query,namespace):
 
         query = f"{match['metadata']['answer']}"
         # query = f"\nURL: {match['metadata']['url']}\n\nTITLE: {match['metadata']['title']}\n\nSPAN: {match['metadata']['span']}\n\nDIV: {match['metadata']['div']}\n"
-        return answer
+        return query
 
     #return query
 
