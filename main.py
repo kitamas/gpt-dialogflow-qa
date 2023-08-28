@@ -16,8 +16,8 @@ YOUR_ENV = "us-west1-gcp-free"
 
 index_name = "chat-doc-ts"
 
-namespace_name = "ujvilag_QA"
-# namespace_name = "mb"
+namespace = namespace
+# namespace = "uj_vilag"
 
 # Flask app should start in global layout
 app = flask.Flask(__name__)
@@ -47,7 +47,7 @@ def complete_xq(query):
 
     xq = openai.Embedding.create(input=query, engine=MODEL)['data'][0]['embedding']
 
-    res = index.query([xq], top_k=1, include_metadata=True, namespace=namespace_name)
+    res = index.query([xq], top_k=1, include_metadata=True, namespace=namespace)
    
     """
     print("\nThe most similar questions:")
@@ -82,6 +82,7 @@ def webhook():
     req = request.get_json(force=True)
 
     query_text = req.get('sessionInfo').get('parameters').get('query_text')
+    namespace = req.get('sessionInfo').get('parameters').get('namespace')
 
     # query_with_contexts = retrieve(query_text)
 
@@ -98,7 +99,7 @@ def webhook():
 
 embed_model = "text-embedding-ada-002"
 MODEL = "text-embedding-ada-002"
-namespace_name = "ujvilag_QA"
+namespace = namespace
 
 """
 def retrieve(query_text):
