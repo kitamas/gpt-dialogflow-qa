@@ -32,8 +32,8 @@ def favicon():
 def home():
     return "Hello World"
 
-# def complete_xq(query_text):
-def complete_xq(query_text,namespace):
+# def complete_xq(query):
+def complete_xq(query,namespace):
     # openai.api_key = "sk- . . ."
 
     # initializing a Pinecone index
@@ -44,7 +44,7 @@ def complete_xq(query_text,namespace):
 
     index = pinecone.Index(index_name)
 
-    xq = openai.Embedding.create(input=query_text, engine=MODEL)['data'][0]['embedding']
+    xq = openai.Embedding.create(input=query, engine=MODEL)['data'][0]['embedding']
 
     res = index.query([xq], top_k=1, include_metadata=True, namespace=namespace)
    
