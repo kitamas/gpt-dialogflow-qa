@@ -99,7 +99,7 @@ def webhook():
 
 embed_model = "text-embedding-ada-002"
 MODEL = "text-embedding-ada-002"
-namespace = namespace
+# namespace = namespace
 
 """
 def retrieve(query_text):
