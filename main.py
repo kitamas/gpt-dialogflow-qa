@@ -83,7 +83,7 @@ def webhook():
 
     query_text = req.get('sessionInfo').get('parameters').get('query_text')
     namespace = req.get('sessionInfo').get('parameters').get('namespace')
-
+    print("namespace = ",namespace)
     # query_with_contexts = retrieve(query_text)
 
     # answer = complete_xq(query_with_contexts)
