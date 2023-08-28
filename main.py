@@ -61,7 +61,7 @@ def complete_xq(query,namespace):
 
         query = f"{match['metadata']['answer']}"
         # query = f"\nURL: {match['metadata']['url']}\n\nTITLE: {match['metadata']['title']}\n\nSPAN: {match['metadata']['span']}\n\nDIV: {match['metadata']['div']}\n"
-        return query
+        return answer
 
     #return query
 
@@ -83,6 +83,7 @@ def webhook():
 
     query_text = req.get('sessionInfo').get('parameters').get('query_text')
     namespace = req.get('sessionInfo').get('parameters').get('uj_vilag')
+    print("namespace = ",namespace)
     # query_with_contexts = retrieve(query_text)
 
     # answer = complete_xq(query_with_contexts)
