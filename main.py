@@ -16,8 +16,7 @@ YOUR_ENV = "us-west1-gcp-free"
 
 index_name = "chat-doc-ts"
 
-# namespace = namespace
-namespace = "uj_vilag"
+# namespace = "uj_vilag"
 
 # Flask app should start in global layout
 app = flask.Flask(__name__)
@@ -33,8 +32,8 @@ def favicon():
 def home():
     return "Hello World"
 
-def complete_xq(query):
-
+# def complete_xq(query_text):
+def complete_xq(query_text,namespace):
     # openai.api_key = "sk- . . ."
 
     # initializing a Pinecone index
@@ -45,7 +44,7 @@ def complete_xq(query):
 
     index = pinecone.Index(index_name)
 
-    xq = openai.Embedding.create(input=query, engine=MODEL)['data'][0]['embedding']
+    xq = openai.Embedding.create(input=query_text, engine=MODEL)['data'][0]['embedding']
 
     res = index.query([xq], top_k=1, include_metadata=True, namespace=namespace)
    
@@ -88,7 +87,8 @@ def webhook():
 
     # answer = complete_xq(query_with_contexts)
     # answer = complete_xq(query_text)
-    answer = "ChatGPT: " + complete_xq(query_text)
+    # answer = "ChatGPT: " + complete_xq(query_text)
+    answer = "ChatGPT: " + complete_xq(query_text,namespace)
 
     res = {
         "fulfillment_response": {"messages": [{"text": {"text": [answer]}}]}
