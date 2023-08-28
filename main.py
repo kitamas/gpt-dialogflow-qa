@@ -46,7 +46,7 @@ def complete_xq(query_text,namespace):
 
     xq = openai.Embedding.create(input=query_text, engine=MODEL)['data'][0]['embedding']
 
-    res = index.query_text([xq], top_k=1, include_metadata=True, namespace=namespace)
+    res = index.query([xq], top_k=1, include_metadata=True, namespace=namespace)
    
     """
     print("\nThe most similar questions:")
