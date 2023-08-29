@@ -82,7 +82,7 @@ def webhook():
     req = request.get_json(force=True)
 
     query_text = req.get('sessionInfo').get('parameters').get('query_text')
-    namespace = req.get('sessionInfo').get('parameters').get('uj_vilag')
+    namespace = req.get('sessionInfo').get('parameters').get('namespace')
     print("namespace = ",namespace)
     # query_with_contexts = retrieve(query_text)
 
