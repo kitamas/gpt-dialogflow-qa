@@ -21,8 +21,12 @@ def webhook():
 
     answer = "ChatGPT: " + query_text
 
-    res = {
+    res1 = {
         "fulfillment_response": {"messages": [{"text": {"text": [answer]}}]}
+    }
+
+    res = {
+        "fulfillment_response": {"messages": [{"text": {"text": [answer,type(res1)]}}]}
     }
 
     return res
