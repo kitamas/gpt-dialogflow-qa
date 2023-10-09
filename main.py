@@ -24,9 +24,9 @@ def webhook():
     res1 = {
         "fulfillment_response": {"messages": [{"text": {"text": [answer]}}]}
     }
-
+    print(type(res1))
     res = {
-        "fulfillment_response": {"messages": [{"text": {"text": [answer,type(res1)]}}]}
+        "fulfillment_response": {"messages": [{"text": {"text": [answer]}}]}
     }
 
     return res
