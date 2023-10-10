@@ -6,12 +6,12 @@ import openai
 import pinecone
 
 # Heroku config vars
-openai.api_key = os.environ.get("OPENAI_API_KEY")
-# openai.api_key = os.getenv("OPENAI_API_KEY")
+# openai.api_key = os.environ.get("OPENAI_API_KEY")
+openai.api_key = os.getenv("OPENAI_API_KEY")
 # openai.api_key = "sk- . . ."
 
 # Heroku config vars
-PINECONE_API_KEY = os.environ.get("PINECONE_API_KEY")
+PINECONE_API_KEY = os.getenv.get("PINECONE_API_KEY")
 # TELEKOM PINECONE_API_KEY = "c47d17e1-62da-4f4a-a319-9608e3104d13"
 # PINECONE_API_KEY = "a2a86279-ffc8-490c-9365-0d3d32a458a5"
 
