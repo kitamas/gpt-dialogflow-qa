@@ -11,7 +11,7 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 # openai.api_key = "sk- . . ."
 
 # Heroku config vars
-PINECONE_API_KEY = os.getenv.get("PINECONE_API_KEY")
+PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
 # TELEKOM PINECONE_API_KEY = "c47d17e1-62da-4f4a-a319-9608e3104d13"
 # PINECONE_API_KEY = "a2a86279-ffc8-490c-9365-0d3d32a458a5"
 
@@ -64,12 +64,8 @@ def complete_xq(query,namespace):
 
     #return query
 
-
 @app.route('/webhook', methods=['GET','POST'])
 def webhook():
-
-    # openai.api_key = "sk- . . ."
-
     # initializing a Pinecone index
     pinecone.init(
         api_key=PINECONE_API_KEY,
@@ -82,14 +78,13 @@ def webhook():
 
     query_text = req.get('sessionInfo').get('parameters').get('query_text')
     namespace = req.get('sessionInfo').get('parameters').get('namespace')
-    # print("namespace = ",namespace)
+
     # query_with_contexts = retrieve(query_text)
 
     # answer = complete_xq(query_with_contexts)
     # answer = complete_xq(query_text)
     # answer = "ChatGPT: " + complete_xq(query_text)
-    # answer = "ChatGPT: " + complete_xq(query_text,namespace)
-    answer = "ChatGPT: "
+    answer = "ChatGPT: " + complete_xq(query_text,namespace)
 
     res = {
         "fulfillment_response": {"messages": [{"text": {"text": [answer]}}]}
