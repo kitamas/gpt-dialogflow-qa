@@ -6,7 +6,6 @@ import openai
 import pinecone
 
 # Heroku config vars
-# openai.api_key = os.environ.get("OPENAI_API_KEY")
 openai.api_key = os.getenv("OPENAI_API_KEY")
 # openai.api_key = "sk- . . ."
 
@@ -35,7 +34,6 @@ def home():
 
 # def complete_xq(query):
 def complete_xq(query,namespace):
-    # openai.api_key = "sk- . . ."
 
     # initializing a Pinecone index
     pinecone.init(
@@ -97,7 +95,6 @@ def webhook():
 
 embed_model = "text-embedding-ada-002"
 MODEL = "text-embedding-ada-002"
-# namespace = namespace
 
 """
 def retrieve(query_text):
