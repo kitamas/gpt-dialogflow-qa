@@ -87,7 +87,7 @@ def webhook():
     # answer = complete_xq(query_with_contexts)
     # answer = complete_xq(query_text)
     # answer = "ChatGPT: " + complete_xq(query_text)
-    answer = "ChatGPT: " + complete_xq(query_text,namespace)
+    answer = complete_xq(query_text,namespace)
 
     res = {
         "fulfillment_response": {"messages": [{"text": {"text": [answer]}}]}
