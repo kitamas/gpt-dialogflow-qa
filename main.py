@@ -15,8 +15,10 @@ PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
 # TELEKOM PINECONE_API_KEY = "c47d17e1-62da-4f4a-a319-9608e3104d13"
 # PINECONE_API_KEY = "a2a86279-ffc8-490c-9365-0d3d32a458a5"
 
+# Heroku config vars
+YOUR_ENV = os.getenv("YOUR_ENV")
 # TELEKOM YOUR_ENV = "us-west1-gcp-free"
-YOUR_ENV = "us-west4-gcp"
+# YOUR_ENV = "us-west4-gcp"
 
 index_name = "chat-doc-mt"
 
@@ -77,7 +79,8 @@ def webhook():
     req = request.get_json(force=True)
 
     query_text = req.get('sessionInfo').get('parameters').get('query_text')
-    namespace = req.get('sessionInfo').get('parameters').get('namespace')
+    # namespace = req.get('sessionInfo').get('parameters').get('namespace')
+    namespace = "Moodle_QA"
 
     # query_with_contexts = retrieve(query_text)
 
